@@ -17,13 +17,13 @@
   --border:#e8e4e0;
   --border2:#d8d3ce;
   --txt:#1a1714;
-  --muted:#5a544f; /* Gris más oscuro y formal para lectura */
+  --muted:#5a544f;
   --muted2:#8a8480;
   --pink:#f2a7bc;
   --pink-soft:#fce8ef;
   --pink-mid:#e8829c;
   --pink-dark:#c45a78;
-  --accent:#2563eb; /* Azul corporativo para enlaces u hover si se necesita */
+  --accent:#2563eb;
   --syne:'Syne',sans-serif;
   --inter:'Inter',sans-serif;
   --mono:'Syne Mono',monospace;
@@ -34,15 +34,16 @@ body{background:var(--bg);color:var(--txt);font-family:var(--inter);-webkit-font
 
 /* ── cursor  ── */
 .cursor{width:7px;height:7px;border-radius:50%;background:var(--pink-mid);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:left .06s,top .06s}
+@media (hover: none) and (pointer: coarse) {
+  .cursor { display: none; }
+}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;border-bottom:1px solid var(--border);background:rgba(250,250,249,.92);backdrop-filter:blur(16px)}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between}
-/* Logo  */
 .nav-logo{font-family:var(--inter);font-weight:700;font-size:1.1rem;letter-spacing:-.02em;color:var(--txt);text-decoration:none}
 .nav-logo em{color:var(--pink-mid);font-style:normal}
 .nav-links{display:flex;gap:2rem;list-style:none}
-/* Enlaces */
 .nav-links a{font-family:var(--inter);font-size:.85rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--txt)}
 .nav-available{display:flex;align-items:center;gap:.45rem;font-family:var(--inter);font-size:.75rem;font-weight:500;color:var(--muted)}
@@ -53,13 +54,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 #hero{padding:10rem 2rem 5rem;max-width:var(--max);margin:0 auto}
 .hero-tag{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pink-dark);display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
 .hero-tag::before{content:'';width:2rem;height:1px;background:var(--pink-dark)}
-
-/* Título formal en Inter */
 h1.h-name{font-family:var(--inter);font-weight:700;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.1;letter-spacing:-.03em;margin-bottom:2rem;color:var(--txt)}
 h1.h-name .soft{color:var(--muted2);font-weight:400}
-
 .hero-bottom{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
-/* Texto biográfico  */
 .hero-bio{font-size:1.1rem;font-weight:400;line-height:1.8;color:var(--muted);max-width:540px}
 .hero-bio strong{color:var(--txt);font-weight:600}
 .hero-ctas{display:flex;flex-direction:row;gap:1rem;align-items:center}
@@ -69,18 +66,19 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 .btn-fill:hover{background:#333;transform:translateY(-1px)}
 .btn-fill.pink{background:var(--pink-dark);color:#fff}
 .btn-fill.pink:hover{background:#a3445f}
-
 .btn-stroke{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:1px solid var(--border2);color:var(--txt);padding:.8rem 1.6rem;border-radius:6px;font-family:var(--inter);font-size:.85rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:border-color .2s, background-color .2s}
 .btn-stroke:hover{border-color:var(--txt);background:var(--border)}
 
 /* ── MARQUEE  ── */
 .marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 0;overflow:hidden;white-space:nowrap;margin-top:5rem;background:var(--bg2)}
 .marquee-track{display:inline-flex;gap:3rem;animation:scroll 35s linear infinite}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
 .m-item{font-family:var(--inter);font-size:.8rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.75rem;flex-shrink:0}
 .m-dot{width:4px;height:4px;border-radius:50%;background:var(--border2)}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── SECTION SHARED ── */
 .section-wrap{max-width:var(--max);margin:0 auto;padding:6rem 2rem}
 .section-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:3.5rem}
 .section-label{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
@@ -91,16 +89,13 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 .exp-card{position:relative;border:1px solid var(--border);border-radius:12px;padding:2.5rem;overflow:hidden;transition:border-color .25s,box-shadow .25s, transform .2s;margin-bottom:1.5rem;background:var(--bg)}
 .exp-card:last-child{margin-bottom:0}
 .exp-card:hover{border-color:var(--border2);box-shadow:0 8px 30px rgba(0,0,0,.04);transform:translateY(-2px)}
-/* Barra lateral  */
 .exp-accent{position:absolute;top:0;left:0;width:4px;height:100%;background:var(--pink-dark)}
 .exp-accent.soft{background:var(--pink-mid)}
 .exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap}
-/* Títulos  */
 .exp-title{font-family:var(--inter);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;line-height:1.3;color:var(--txt)}
 .exp-date{font-family:var(--inter);font-size:.85rem;font-weight:500;color:var(--muted2);white-space:nowrap}
 .exp-company{font-family:var(--inter);font-size:.9rem;font-weight:600;color:var(--pink-dark);margin-bottom:1rem}
 .exp-desc{font-size:.95rem;font-weight:400;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;max-width:650px}
-/* Etiquetas  */
 .tags{display:flex;flex-wrap:wrap;gap:.5rem}
 .tag{font-family:var(--inter);font-size:.75rem;font-weight:500;padding:.3rem .8rem;border-radius:4px;border:1px solid}
 .t-pink{background:var(--pink-soft);color:var(--pink-dark);border-color:rgba(196,90,120,.2)}
@@ -117,7 +112,6 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 .project-img-placeholder i{font-size:3rem;opacity:.5}
 .project-info{padding:3rem;display:flex;flex-direction:column;gap:1.25rem;justify-content:center;background:var(--bg)}
 .project-num{font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;color:var(--muted2);text-transform:uppercase}
-/* Título de proyecto */
 .project-name{font-family:var(--inter);font-weight:800;font-size:2.25rem;letter-spacing:-.03em;line-height:1.1;color:var(--txt)}
 .project-tagline{font-family:var(--inter);font-size:.95rem;font-weight:600;color:var(--pink-dark)}
 .project-text{font-size:.95rem;font-weight:400;color:var(--muted);line-height:1.7;max-width:750px}
@@ -132,7 +126,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 .skill-icon{font-size:2.25rem;display:block;line-height:1}
 .skill-name{font-family:var(--inter);font-weight:600;font-size:.85rem;color:var(--txt)}
 
-/* Caja Salesforce  */
+/* Caja Adicional  */
 .sf-box{border:1px solid var(--border2);border-radius:12px;padding:2.5rem;display:flex;gap:2rem;align-items:center;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.02)}
 .sf-icon-wrap{flex-shrink:0;width:56px;height:56px;border-radius:50%;background:var(--pink-soft);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--pink-dark)}
 .sf-body h3{font-family:var(--inter);font-weight:700;font-size:1.1rem;letter-spacing:-.01em;margin-bottom:.5rem;color:var(--txt)}
@@ -142,7 +136,6 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 /* ── CONTACTO ── */
 #contacto{background:var(--bg)}
 #contacto .section-wrap{text-align:center;max-width:600px}
-/* Título de contacto */
 .contact-title{font-family:var(--inter);font-weight:800;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.03em;line-height:1;margin-bottom:1.5rem;color:var(--txt)}
 .contact-sub{font-size:1.05rem;font-weight:400;color:var(--muted);line-height:1.7;margin-bottom:3rem;max-width:500px;margin-left:auto;margin-right:auto}
 .contact-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
@@ -195,7 +188,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 
   <div class="hero-bottom">
     <p class="hero-bio">
-      Recién graduada en DAW. Me apasiona crear soluciones limpias, escalables y orientadas al usuario. Actualmente profundizando en mi especialización dentro del ecosistema <strong>Salesforce y LWC</strong>.
+      Graduada en Desarrollo de Aplicaciones Web (DAW) y actualmente cursando DAM. Me apasiona crear soluciones limpias, escalables y orientadas al usuario. Actualmente en búsqueda activa de mi primera oportunidad profesional como Junior Developer.
     </p>
     <div class="hero-ctas">
       <a href="#proyecto" class="btn-fill pink">Ver proyecto destacado</a>
@@ -209,15 +202,17 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
       <span class="m-item"><span class="m-dot"></span>Spring Boot</span>
       <span class="m-item"><span class="m-dot"></span>React</span>
       <span class="m-item"><span class="m-dot"></span>PHP &amp; MySQL</span>
+      <span class="m-item"><span class="m-dot"></span>AWS</span>
       <span class="m-item"><span class="m-dot"></span>JavaScript</span>
       <span class="m-item"><span class="m-dot"></span>Salesforce LWC</span>
       <span class="m-item"><span class="m-dot"></span>Java</span>
       <span class="m-item"><span class="m-dot"></span>Bootstrap</span>
-      <!-- Duplicado para el efecto de scroll infinito -->
+      <!-- Duplicado para scroll infinito -->
       <span class="m-item"><span class="m-dot"></span>Angular</span>
       <span class="m-item"><span class="m-dot"></span>Spring Boot</span>
       <span class="m-item"><span class="m-dot"></span>React</span>
       <span class="m-item"><span class="m-dot"></span>PHP &amp; MySQL</span>
+      <span class="m-item"><span class="m-dot"></span>AWS</span>
       <span class="m-item"><span class="m-dot"></span>JavaScript</span>
       <span class="m-item"><span class="m-dot"></span>Salesforce LWC</span>
       <span class="m-item"><span class="m-dot"></span>Java</span>
@@ -257,7 +252,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
         <span class="exp-date"><i class="fa-regular fa-calendar mr-1"></i> Mar 2025</span>
       </div>
       <p class="exp-company">Capgemini</p>
-      <p class="exp-desc">Inmersión intensiva y autónoma en el ecosistema Cloud. Realicé cursos especializados en Salesforce por iniciativa propia dentro de la empresa, sentando las bases de mi especialización actual.</p>
+      <p class="exp-desc">Inmersión intensiva y autónoma en el ecosistema Cloud. Realicé cursos especializados en Salesforce por iniciativa propia dentro de la empresa, sentando las bases para explorar nuevas tecnologías.</p>
       <div class="tags">
         <span class="tag t-pink"><i class="fa-solid fa-cloud mr-1"></i> Salesforce</span>
         <span class="tag t-dark">Autoaprendizaje</span>
@@ -336,13 +331,17 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
         <span class="skill-icon" style="color:#f7df1e"><i class="fa-brands fa-js"></i></span>
         <span class="skill-name">JavaScript</span>
       </div>
+      <div class="skill-cell">
+        <span class="skill-icon" style="color:#FF9900"><i class="fa-brands fa-aws"></i></span>
+        <span class="skill-name">AWS</span>
+      </div>
     </div>
 
     <div class="sf-box">
-      <div class="sf-icon-wrap"><i class="fa-solid fa-cloud"></i></div>
+      <div class="sf-icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
       <div class="sf-body">
-        <h3>Mi próximo paso: Ecosistema Salesforce</h3>
-        <p>Tras finalizar mis estudios y prácticas formales, mi objetivo principal es especializarme en la plataforma Salesforce, enfocándome en el desarrollo frontend con <strong>Lightning Web Components (LWC)</strong> y arquitectura Cloud.</p>
+        <h3>Evolución y ecosistema Cloud</h3>
+        <p>Además del desarrollo web, mi formación abarca la arquitectura en la nube con la certificación <strong>AWS Academy Cloud Architecting</strong>. Mantengo también un gran interés por ecosistemas CRM, explorando el desarrollo con <strong>Lightning Web Components (LWC) en Salesforce</strong> para ampliar mi visión técnica sin cerrarme a una única tecnología.</p>
       </div>
     </div>
   </div>
@@ -352,7 +351,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 <section id="contacto">
   <div class="section-wrap">
     <h2 class="contact-title">¿Hablamos?</h2>
-    <p class="contact-sub">Actualmente estoy buscando mi primera oportunidad como Junior Developer. Mi bandeja de entrada está siempre abierta, ya sea para una oportunidad o para saludar.</p>
+    <p class="contact-sub">Actualmente estoy buscando mi primera oportunidad como Junior Developer. Mi bandeja de entrada está siempre abierta, ya sea para una oportunidad profesional o para saludar.</p>
 
     <div class="contact-btns">
       <a href="mailto:sararodriiguez99@gmail.com" class="btn-fill pink">
@@ -374,31 +373,42 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 </section>
 
 <script>
-// Cursor personalizado
 const cur = document.getElementById('cur');
 document.addEventListener('mousemove', e => {
   cur.style.left = e.clientX + 'px';
   cur.style.top = e.clientY + 'px';
 });
 
-// Función para copiar el email
 function copiarEmail() {
   const email = "sararodriiguez99@gmail.com";
-  const el = document.createElement("textarea");
-  el.value = email;
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
-  document.body.appendChild(el);
-  el.select();
-  try {
-    document.execCommand('copy');
+  if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(email).then(() => {
+          mostrarMensaje();
+      }).catch(err => {
+          console.error("Error al copiar el correo", err);
+      });
+  } else {
+      // Fallback por si acaso falla en algún navegador antiguo
+      const el = document.createElement("textarea");
+      el.value = email;
+      el.style.position = "absolute";
+      el.style.left = "-9999px";
+      document.body.appendChild(el);
+      el.select();
+      try {
+        document.execCommand('copy');
+        mostrarMensaje();
+      } catch(e) {
+          console.error("Error al copiar el correo", e);
+      }
+      document.body.removeChild(el);
+  }
+}
+
+function mostrarMensaje() {
     const m = document.getElementById('copied');
     m.style.opacity = '1';
     setTimeout(() => { m.style.opacity = '0'; }, 2500);
-  } catch(e) {
-      console.error("Error al copiar el correo", e);
-  }
-  document.body.removeChild(el);
 }
 </script>
 </body>
