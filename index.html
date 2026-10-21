@@ -4,9 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sara Rodríguez — Desarrolladora Web Full-Stack</title>
+<meta name="description" content="Porfolio de Sara Rodríguez Ortega, Desarrolladora Web Full-Stack con experiencia en Angular, Spring Boot, Java, JavaScript y Salesforce.">
+<meta property="og:title" content="Sara Rodríguez — Desarrolladora Web Full-Stack">
+<meta property="og:description" content="Desarrolladora Web especializada en Angular, Spring Boot, Java, PHP y ecosistema Cloud (AWS & Salesforce).">
+<meta property="og:type" content="website">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Syne+Mono&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Syne+Mono&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -32,6 +37,10 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:var(--inter);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
+/* Utilidades corregidas */
+.mr-1{margin-right:.35rem}
+.mb-3{margin-bottom:1rem}
+
 /* ── cursor  ── */
 .cursor{width:7px;height:7px;border-radius:50%;background:var(--pink-mid);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:left .06s,top .06s}
 @media (hover: none) and (pointer: coarse) {
@@ -41,7 +50,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--inter);-webkit-font
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;border-bottom:1px solid var(--border);background:rgba(250,250,249,.92);backdrop-filter:blur(16px)}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:var(--inter);font-weight:700;font-size:1.1rem;letter-spacing:-.02em;color:var(--txt);text-decoration:none}
+.nav-logo{font-family:var(--syne);font-weight:700;font-size:1.15rem;letter-spacing:-.02em;color:var(--txt);text-decoration:none}
 .nav-logo em{color:var(--pink-mid);font-style:normal}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-family:var(--inter);font-size:.85rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
@@ -96,8 +105,9 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 .exp-date{font-family:var(--inter);font-size:.85rem;font-weight:500;color:var(--muted2);white-space:nowrap}
 .exp-company{font-family:var(--inter);font-size:.9rem;font-weight:600;color:var(--pink-dark);margin-bottom:1rem}
 .exp-desc{font-size:.95rem;font-weight:400;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;max-width:650px}
+.exp-desc strong{color:var(--txt);font-weight:600}
 .tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.tag{font-family:var(--inter);font-size:.75rem;font-weight:500;padding:.3rem .8rem;border-radius:4px;border:1px solid}
+.tag{font-family:var(--inter);font-size:.75rem;font-weight:500;padding:.3rem .8rem;border-radius:4px;border:1px solid;display:inline-flex;align-items:center}
 .t-pink{background:var(--pink-soft);color:var(--pink-dark);border-color:rgba(196,90,120,.2)}
 .t-dark{background:var(--bg2);color:var(--txt);border-color:var(--border2)}
 
@@ -120,8 +130,8 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 
 /* ── SKILLS ── */
 #skills{background:var(--bg2)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:2.5rem}
-.skill-cell{background:var(--bg);padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;transition:background .2s}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:2.5rem}
+.skill-cell{background:var(--bg);padding:2rem 1.25rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;transition:background .2s}
 .skill-cell:hover{background:#fff}
 .skill-icon{font-size:2.25rem;display:block;line-height:1}
 .skill-name{font-family:var(--inter);font-weight:600;font-size:.85rem;color:var(--txt)}
@@ -132,6 +142,8 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 .sf-body h3{font-family:var(--inter);font-weight:700;font-size:1.1rem;letter-spacing:-.01em;margin-bottom:.5rem;color:var(--txt)}
 .sf-body p{font-size:.95rem;font-weight:400;color:var(--muted);line-height:1.7}
 .sf-body strong{color:var(--txt);font-weight:600}
+.sf-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:.85rem;font-size:.85rem;font-weight:600;color:var(--pink-dark);text-decoration:none}
+.sf-link:hover{text-decoration:underline}
 
 /* ── CONTACTO ── */
 #contacto{background:var(--bg)}
@@ -188,7 +200,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
 
   <div class="hero-bottom">
     <p class="hero-bio">
-      Graduada en Desarrollo de Aplicaciones Web (DAW) y actualmente cursando DAM. Me apasiona crear soluciones limpias, escalables y orientadas al usuario. Actualmente en búsqueda activa de mi primera oportunidad profesional como Junior Developer.
+      Graduada en Desarrollo de Aplicaciones Web (<strong>DAW</strong>). Me apasiona crear soluciones limpias, escalables y orientadas al usuario. Actualmente en búsqueda activa de mi primera oportunidad profesional como Junior Developer.
     </p>
     <div class="hero-ctas">
       <a href="#proyecto" class="btn-fill pink">Ver proyecto destacado</a>
@@ -204,7 +216,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
       <span class="m-item"><span class="m-dot"></span>PHP &amp; MySQL</span>
       <span class="m-item"><span class="m-dot"></span>AWS</span>
       <span class="m-item"><span class="m-dot"></span>JavaScript</span>
-      <span class="m-item"><span class="m-dot"></span>Salesforce LWC</span>
+      <span class="m-item"><span class="m-dot"></span>Salesforce</span>
       <span class="m-item"><span class="m-dot"></span>Java</span>
       <span class="m-item"><span class="m-dot"></span>Bootstrap</span>
       <!-- Duplicado para scroll infinito -->
@@ -214,7 +226,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
       <span class="m-item"><span class="m-dot"></span>PHP &amp; MySQL</span>
       <span class="m-item"><span class="m-dot"></span>AWS</span>
       <span class="m-item"><span class="m-dot"></span>JavaScript</span>
-      <span class="m-item"><span class="m-dot"></span>Salesforce LWC</span>
+      <span class="m-item"><span class="m-dot"></span>Salesforce</span>
       <span class="m-item"><span class="m-dot"></span>Java</span>
       <span class="m-item"><span class="m-dot"></span>Bootstrap</span>
     </div>
@@ -235,7 +247,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
         <h3 class="exp-title">Desarrolladora Full-Stack — Prácticas 2.º DAW</h3>
         <span class="exp-date"><i class="fa-regular fa-calendar mr-1"></i> Ene – Mar 2026</span>
       </div>
-      <p class="exp-company">Capgemini</p>
+      <p class="exp-company">Capgemini (ADCenter)</p>
       <p class="exp-desc">Integración en el departamento de proyectos internos de la consultora. Participación activa en el ciclo de vida del desarrollo de software, implementando soluciones robustas en un entorno empresarial real.</p>
       <div class="tags">
         <span class="tag t-pink"><i class="fa-brands fa-angular mr-1"></i> Angular</span>
@@ -248,14 +260,15 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
     <div class="exp-card">
       <div class="exp-accent soft"></div>
       <div class="exp-top">
-        <h3 class="exp-title">Formación Salesforce — Prácticas 1.º DAW</h3>
+        <h3 class="exp-title">Formación Ecosistema Salesforce — Prácticas 1.º DAW</h3>
         <span class="exp-date"><i class="fa-regular fa-calendar mr-1"></i> Mar 2025</span>
       </div>
       <p class="exp-company">Capgemini</p>
-      <p class="exp-desc">Inmersión intensiva y autónoma en el ecosistema Cloud. Realicé cursos especializados en Salesforce por iniciativa propia dentro de la empresa, sentando las bases para explorar nuevas tecnologías.</p>
+      <p class="exp-desc">Inmersión intensiva en el ecosistema Cloud. Realización de módulos técnicos y <strong>2 Superbadges oficiales</strong> (<em>Lightning Experience Reports &amp; Dashboards Specialist</em> y <em>Business Administration Specialist</em>).</p>
       <div class="tags">
-        <span class="tag t-pink"><i class="fa-solid fa-cloud mr-1"></i> Salesforce</span>
-        <span class="tag t-dark">Autoaprendizaje</span>
+        <span class="tag t-pink"><i class="fa-solid fa-cloud mr-1"></i> Salesforce Lightning</span>
+        <span class="tag t-pink">Flow Builder</span>
+        <span class="tag t-dark">Apex Basics</span>
       </div>
     </div>
   </div>
@@ -325,7 +338,7 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
       </div>
       <div class="skill-cell">
         <span class="skill-icon" style="color:#8892be"><i class="fa-brands fa-php"></i></span>
-        <span class="skill-name">PHP & MySQL</span>
+        <span class="skill-name">PHP &amp; MySQL</span>
       </div>
       <div class="skill-cell">
         <span class="skill-icon" style="color:#f7df1e"><i class="fa-brands fa-js"></i></span>
@@ -338,10 +351,13 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
     </div>
 
     <div class="sf-box">
-      <div class="sf-icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
+      <div class="sf-icon-wrap"><i class="fa-solid fa-award"></i></div>
       <div class="sf-body">
-        <h3>Evolución y ecosistema Cloud</h3>
-        <p>Además del desarrollo web, mi formación abarca la arquitectura en la nube con la certificación <strong>AWS Academy Cloud Architecting</strong>. Mantengo también un gran interés por ecosistemas CRM, explorando el desarrollo con <strong>Lightning Web Components (LWC) en Salesforce</strong> para ampliar mi visión técnica sin cerrarme a una única tecnología.</p>
+        <h3>Certificaciones y Ecosistema Cloud</h3>
+        <p>Cuento con la acreditación <strong>AWS Academy Cloud Architecting</strong> y certificaciones de <strong>SQL en HackerRank</strong>. Mantengo también un gran interés por ecosistemas CRM, explorando soluciones en <strong>Salesforce</strong> (administración, informes y flujos).</p>
+        <a href="https://www.salesforce.com/trailblazer/sara-rodriguez-ortega" target="_blank" rel="noopener" class="sf-link">
+          Ver perfil y Superbadges en Trailhead <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.75rem"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -364,8 +380,9 @@ h1.h-name .soft{color:var(--muted2);font-weight:400}
     <p id="copied">¡Correo copiado al portapapeles!</p>
 
     <div class="social-row">
-      <a href="https://linkedin.com/in/sara-rodríguez-ortega-61102b412" target="_blank" rel="noopener" class="soc-link" aria-label="Perfil de LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/sararo16" target="_blank" rel="noopener" class="soc-link" aria-label="Perfil de GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/in/sara-rodríguez-ortega-61102b412" target="_blank" rel="noopener" class="soc-link" aria-label="Perfil de LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/sararo16" target="_blank" rel="noopener" class="soc-link" aria-label="Perfil de GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.salesforce.com/trailblazer/sara-rodriguez-ortega" target="_blank" rel="noopener" class="soc-link" aria-label="Perfil de Trailhead" title="Salesforce Trailhead"><i class="fa-solid fa-cloud"></i></a>
     </div>
 
     <p class="footer-note">Diseñado y desarrollado por Sara Rodríguez Ortega &copy; 2026</p>
@@ -388,7 +405,6 @@ function copiarEmail() {
           console.error("Error al copiar el correo", err);
       });
   } else {
-      // Fallback por si acaso falla en algún navegador antiguo
       const el = document.createElement("textarea");
       el.value = email;
       el.style.position = "absolute";
